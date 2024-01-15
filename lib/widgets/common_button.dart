@@ -1,10 +1,24 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:statusdowloader/utility/app_colors.dart';
+import 'package:statusdowloader/utility/app_strings.dart';
 
-Widget commonButton({required String str,required }){
-  return Container(
-  height: 160,
-  
-  // child: Image.asset(name),
+import '../utility/app_fonts.dart';
 
+Widget commonButton({required String str,required ,required void Function() onTap}){
+  return InkWell(
+    onTap: onTap,
+    child: Container(
+    width: 200,
+    height: 42,
+    decoration: BoxDecoration(
+borderRadius: BorderRadius.circular(60),
+    color: AppColor.colorGreen,
+),
+
+child: Center(child: Text(str,style: TS.fontStyle.sfFont16(AppColor.whiteColor,fontWeight: FontWeight.w500),)),
+
+    ),
   );
 }

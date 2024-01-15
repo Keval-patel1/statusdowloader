@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:statusdowloader/screens/recover_screen/recover_screen.dart';
+import 'package:statusdowloader/screens/setting_screen/setting_screen.dart';
 import 'package:statusdowloader/screens/status_screen/status_screen.dart';
+import 'package:statusdowloader/screens/whatsapp_web/whatsapp_web.dart';
 import 'package:statusdowloader/utility/app_colors.dart';
 import 'package:statusdowloader/utility/app_fonts.dart';
 import 'package:statusdowloader/utility/app_images.dart';
@@ -73,9 +76,15 @@ class _SelectStatusSaverState extends State<SelectStatusSaver> {
                             width: w * .4,
                           ),
                           wBox(width: 16),
-                          Image.asset(
-                            AppImages.whatsappWebImage,
-                            width: w * .4,
+                          InkWell(
+                            onTap: (){
+
+                              Get.to(()=> WhatsappWeb());
+                            },
+                            child: Image.asset(
+                              AppImages.whatsappWebImage,
+                              width: w * .4,
+                            ),
                           ),
                         ],
                       ),
@@ -108,10 +117,15 @@ class _SelectStatusSaverState extends State<SelectStatusSaver> {
                       Row(crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset(
-                            AppImages.recoverChatImage,
-                            width: w * .35,
+                          InkWell(
+                            onTap: (){
+                              Get.to(()=> RecoverScreen());
+                            },
+                            child: Image.asset(
+                              AppImages.recoverChatImage,
+                              width: w * .35,
 
+                            ),
                           ),
                           wBox(width: 16),
                           Image.asset(
@@ -121,7 +135,11 @@ class _SelectStatusSaverState extends State<SelectStatusSaver> {
                         ],
                       ),
                       hBox(height: 16),
-                      Image.asset(AppImages.appSettingImage,height: 80,),
+                      InkWell(
+                          onTap: (){
+                              Get.to(()=> const SettingScreen());
+                          },
+                          child: Image.asset(AppImages.appSettingImage,height: 80,)),
                       hBox(height: 16),
 
                     ],

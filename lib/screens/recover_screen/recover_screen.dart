@@ -1,6 +1,13 @@
+import 'dart:async';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:notification_reader/NotificationData.dart';
+import 'package:notification_reader/notification_reader.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:statusdowloader/models/notificationhistory.dart';
 import 'package:statusdowloader/utility/app_colors.dart';
 import 'package:statusdowloader/utility/app_fonts.dart';
 import 'package:statusdowloader/utility/app_sizer.dart';
@@ -8,39 +15,61 @@ import 'package:statusdowloader/utility/app_strings.dart';
 import 'package:statusdowloader/widgets/common_back_button.dart';
 
 import '../../widgets/common_appbar.dart';
-import 'layouts/image/image.dart';
-import 'layouts/video/video.dart';
+import '../status_screen/layouts/image/image.dart';
+import '../status_screen/layouts/video/video.dart';
 
-class StatusScreen extends StatefulWidget {
-  const StatusScreen({super.key});
+class RecoverScreen extends StatefulWidget {
+  const RecoverScreen({super.key});
 
   @override
-  State<StatusScreen> createState() => _StatusScreenState();
+  State<RecoverScreen> createState() => _RecoverScreenState();
 }
 
-class _StatusScreenState extends State<StatusScreen>
+class _RecoverScreenState extends State<RecoverScreen>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
   List<Widget> pages = const [ImageHomePage(), VideoHomePage()];
-
+  List<NotificationData> titleList = [];
   @override
   void initState() {
+    // NotificationHistory.
     _tabController = TabController(length: 2, vsync: this)..addListener(() {
       setState(() {
         print("indicator ");
       });
     });
-
+    // getdata();
+    initPlatformState();
     super.initState();
   }
+  var res;
+  Future<void> initPlatformState() async {
+    final permission = await Permission.notification.request();
+
+    print(permission);
+    if (permission.isGranted) {
+      await NotificationReader.openNotificationReaderSettings;
+      NotificationData res = await NotificationReader.onNotificationRecieve();
+      if (res.body != null) {
+           res = await NotificationReader.onNotificationRecieve();
+          print("res ${res.data['android.textLines']}");
+          print("Helllo");
+          if(res.packageName=="com.whatsapp") {
+            if (titleList.contains(res)) {
+              setState(() {
+                titleList.add(res);
+              });
+
+            }
+          }
+
+      }
+    }
+  }
+
 
   int _selectedIndex = 0;
 
-  void _handleTabSelection(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +99,7 @@ class _StatusScreenState extends State<StatusScreen>
                         color: AppColor.colorGreen,
                         borderRadius: BorderRadius.circular(12)),
                     controller: _tabController,
-                    onTap: _handleTabSelection,
+                    // onTap: _handleTabSelection,
                     tabs: [
                       Center(
                           child: _buildTab(
@@ -94,7 +123,16 @@ class _StatusScreenState extends State<StatusScreen>
                 physics: NeverScrollableScrollPhysics(),
                 controller: _tabController,
                 children: [
-                  pages[0],
+                  Column(
+                    children: [
+                      ListView.builder(
+                  itemCount: titleList.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context,index){
+                          return Text(titleList[index].packageName.toString());
+                      }),
+                    ],
+                  ),
                   pages[1],
 
                 ],
