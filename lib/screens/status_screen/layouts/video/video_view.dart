@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:statusdowloader/utility/app_sizer.dart';
 import 'package:video_player/video_player.dart';
@@ -62,7 +63,7 @@ class _VideoViewState extends State<VideoView> {
       child: Scaffold(
         body: Column(
           children: [
-            const CommonAppBar(str: AppString.strStatus,isTrailIcon: true),
+             CommonAppBar(str: AppString.strStatus.tr,isTrailIcon: true),
 
             Expanded(child: Center(child: Container(
                 height: MediaQuery.of(context).size.width*1.2,

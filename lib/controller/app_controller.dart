@@ -9,6 +9,8 @@ class AppController extends GetxController{
   RxBool statusCircularView=false.obs;
   RxBool statusNightMode=false.obs;
   RxBool statusAds=false.obs;
+
+  RxInt selectLanguage     = 0.obs;
 @override
   void onReady() {
   print("data1");

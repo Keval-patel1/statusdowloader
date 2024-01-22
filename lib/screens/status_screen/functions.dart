@@ -1,5 +1,6 @@
 import 'package:appinio_social_share/appinio_social_share.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
@@ -37,9 +38,9 @@ void downloadStatus(imagePath,context)async{
                     Image.asset(AppImages.iconCorrect,width: 100,),
                     hBox(height: 20),
 
-                      Text(AppString.strstatusSaved,style: TS.fontStyle.sfFont16(AppColor.blackColor,fontWeight: FontWeight.w500),),
+                      Text(AppString.strstatusSaved.tr,style: TS.fontStyle.sfFont16(AppColor.blackColor,fontWeight: FontWeight.w500),),
                     hBox(height: 20),
-                    commonButton(str: AppString.strOk,onTap: () {
+                    commonButton(str: AppString.strOk.tr,onTap: () {
                       Get.back();
                     },),
                     hBox(height: 20),

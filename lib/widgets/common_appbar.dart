@@ -9,9 +9,10 @@ import '../utility/app_strings.dart';
 import 'common_back_button.dart';
 
 class CommonAppBar extends StatelessWidget {
-  const CommonAppBar({this.isTrailIcon,this.str, super.key});
+  const CommonAppBar({this.isTrailIcon,this.str,this.widget, super.key});
   final isTrailIcon;
   final str;
+  final widget;
   @override
   Widget build(BuildContext context) {
     return   Column(
@@ -35,7 +36,7 @@ class CommonAppBar extends StatelessWidget {
                   )
                 ],
               ),
-              isTrailIcon==true? Image.asset(AppImages.iconQuestion,width: 24,):SizedBox(),
+              widget!=null? widget:isTrailIcon==true? Image.asset(AppImages.iconQuestion,width: 24,):SizedBox(),
             ],
           ),
         ),

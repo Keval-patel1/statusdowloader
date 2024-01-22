@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:statusdowloader/utility/app_fonts.dart';
 
 class AppString{
@@ -33,4 +34,16 @@ class AppString{
     static const String strJoinChannel="Join Channel";
     static const String strTermOfUse="Terms of use";
     static const String strPrivacyPolicy="Privacy policy";
+    static const String strFrench="French";
+    static const String strEnglish="English";
+    static const String strSpanish="Spanish";
+    static const String strItalian="Italian";
+    static const String strGerman="German";
+    static const String strJapanese="Japanese";
+    static const String strChinese="Chinese";
+    static const String strExitApp="Exit App";
+    static const String strAreYouSureYouWantToExit="Are You Sure You Want to Exit ?";
+    static const String strYes="Yes";
+    static const String strNo="No";
+
 }

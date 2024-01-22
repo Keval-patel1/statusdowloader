@@ -7,6 +7,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:notification_reader/NotificationData.dart';
 import 'package:notification_reader/notification_reader.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:receive_whatsapp_chat/receive_whatsapp_chat.dart';
 import 'package:statusdowloader/models/notificationhistory.dart';
 import 'package:statusdowloader/utility/app_colors.dart';
 import 'package:statusdowloader/utility/app_fonts.dart';
@@ -22,11 +23,11 @@ class RecoverScreen extends StatefulWidget {
   const RecoverScreen({super.key});
 
   @override
-  State<RecoverScreen> createState() => _RecoverScreenState();
+  _RecoverScreenState createState() => _RecoverScreenState();
 }
 
-class _RecoverScreenState extends State<RecoverScreen>
-    with SingleTickerProviderStateMixin {
+class _RecoverScreenState extends ReceiveWhatsappChat<RecoverScreen>
+    with SingleTickerProviderStateMixin{
   TabController? _tabController;
   List<Widget> pages = const [ImageHomePage(), VideoHomePage()];
   List<NotificationData> titleList = [];
@@ -39,7 +40,8 @@ class _RecoverScreenState extends State<RecoverScreen>
       });
     });
     // getdata();
-    initPlatformState();
+    // initPlatformState();
+    // enableReceivingChatWithMedia();
     super.initState();
   }
   var res;
@@ -77,9 +79,9 @@ class _RecoverScreenState extends State<RecoverScreen>
       child: Scaffold(
         body: Column(
           children: [
-            const Column(
+             Column(
               children: [
-                CommonAppBar(str: AppString.strStatus,isTrailIcon: true),
+                CommonAppBar(str: AppString.strStatus.tr,isTrailIcon: true),
 
               ],
             ),
@@ -103,13 +105,13 @@ class _RecoverScreenState extends State<RecoverScreen>
                     tabs: [
                       Center(
                           child: _buildTab(
-                              AppString.strImages,
+                              AppString.strImages.tr,
                               _selectedIndex == 0
                                   ? AppColor.whiteColor
                                   : AppColor.colorGrey)),
                       Center(
                           child: _buildTab(
-                              AppString.strVideos,
+                              AppString.strVideos.tr,
                               _selectedIndex == 1
                                   ? AppColor.whiteColor
                                   : AppColor.colorGrey)),
@@ -167,5 +169,11 @@ class _RecoverScreenState extends State<RecoverScreen>
     return Container(
       color: color,
     );
+  }
+
+  @override
+  void receiveChatContent(ChatContent chatContent) {
+    // TODO: implement receiveChatContent
+    print("chat content $chatContent");
   }
 }

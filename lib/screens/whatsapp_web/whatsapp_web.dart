@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../utility/app_strings.dart';
@@ -45,8 +46,7 @@ class _WhatsappWebState extends State<WhatsappWeb> {
       child: Scaffold(
         body: Column(
           children: [
-            CommonAppBar(str: AppString.strWhatsWeb,isTrailIcon: false),
-
+            CommonAppBar(str: AppString.strWhatsWeb.tr,isTrailIcon: false),
             Expanded(child: WebViewWidget(controller: controller)),
           ],
         ),

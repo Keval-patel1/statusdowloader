@@ -12,6 +12,7 @@ import 'package:statusdowloader/utility/app_sizer.dart';
 
 import '../../utility/app_strings.dart';
 import '../../widgets/common_appbar.dart';
+import 'app_language.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -29,7 +30,7 @@ class _SettingScreenState extends State<SettingScreen> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CommonAppBar(str: AppString.strSetting, isTrailIcon: false),
+             CommonAppBar(str: AppString.strSetting.tr, isTrailIcon: false),
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(
@@ -40,7 +41,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     children: [
                       hBox(height: 20),
                       Text(
-                        AppString.strGeneralSetting,
+                        AppString.strGeneralSetting.tr,
                         style: TS.fontStyle.sfFont16(AppColor.blackColor,
                             fontWeight: FontWeight.w500),
                       ),
@@ -54,14 +55,14 @@ class _SettingScreenState extends State<SettingScreen> {
                           children: [
                          Obx(() =>    CommonSwitchListTile(
                                 image: AppImages.iconNotification,
-                                title: AppString.strStatusAvailability,
+                                title: AppString.strStatusAvailability.tr,
                                 value: appController.statusAvailability.value,
                                 onChanged: (value) {
                                           appController.statusAvailability.value=value;
                                 })),
                             Obx(() =>  CommonSwitchListTile(
                                 image: AppImages.iconStatusCircular,
-                                title: AppString.strStatusCircularNew,
+                                title: AppString.strStatusCircularNew.tr,
                                 value: appController.statusCircularView.value,
                                 onChanged: (value) {
                                   appController.statusCircularView.value=value;
@@ -69,7 +70,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                 })),
                            Obx(() =>  CommonSwitchListTile(
                                 image: AppImages.iconSun,
-                                title: AppString.strNightModeDark,
+                                title: AppString.strNightModeDark.tr,
                                 value: appController.statusNightMode.value,
                                 onChanged: (value) {
                                   appController.statusNightMode.value=value;
@@ -78,7 +79,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                 })),
                             Obx(() =>  CommonSwitchListTile(
                                 image: AppImages.iconAds,
-                                title: AppString.strOptOutOfAdsPersonalization,
+                                title: AppString.strOptOutOfAdsPersonalization.tr,
                                 value: appController.statusAds.value,
                                 onChanged: (value) {
                                   appController.statusAds.value=value;
@@ -102,7 +103,7 @@ class _SettingScreenState extends State<SettingScreen> {
 
                             Image.asset(AppImages.iconQuestion2,width: 40,),
                             wBox(width: 16),
-                            Text(AppString.strHowItWork,style: TS.fontStyle.sfFont16(AppColor.blackColor,fontWeight: FontWeight.w500),)
+                            Text(AppString.strHowItWork.tr,style: TS.fontStyle.sfFont16(AppColor.blackColor,fontWeight: FontWeight.w500),)
                           ],),
                         ),
                       ),
@@ -121,7 +122,7 @@ class _SettingScreenState extends State<SettingScreen> {
 
                             Image.asset(AppImages.iconChannel,width: 40,),
                             wBox(width: 16),
-                            Text(AppString.strJoinChannel,style: TS.fontStyle.sfFont16(AppColor.blackColor,fontWeight: FontWeight.w500),)
+                            Text(AppString.strJoinChannel.tr,style: TS.fontStyle.sfFont16(AppColor.blackColor,fontWeight: FontWeight.w500),)
                           ],),
                         ),
                       ),
@@ -130,7 +131,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                        Text(AppString.strTermOfUse,style: TS.fontStyle.sfFont16(AppColor.blackColor,fontWeight: FontWeight.w400),),
+                        Text(AppString.strTermOfUse.tr,style: TS.fontStyle.sfFont16(AppColor.blackColor,fontWeight: FontWeight.w400),),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: Container(width: 1,height: 12,color: AppColor.blackColor,),
@@ -143,7 +144,11 @@ class _SettingScreenState extends State<SettingScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              aboutCard(str: AppString.strAppLanguage, icon: AppImages.iconLanguage, image: AppImages.languageImage),
+                              InkWell(
+                                  onTap: (){
+                                    Get.to(()=> const AppLanguage());
+                                  },
+                                  child: aboutCard(str: AppString.strAppLanguage, icon: AppImages.iconLanguage, image: AppImages.languageImage)),
                               aboutCard(str: AppString.strWriteSuggestion, icon: AppImages.iconChat, image: AppImages.suggestionImage),
                             ],
                           ),

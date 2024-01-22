@@ -15,6 +15,8 @@ class AppImages{
   static String rateUsImage="assets/images/rate_us.png";
   static String shareAppImage="assets/images/share_app.png";
   static String suggestionImage="assets/images/suggestion.png";
+  static String exitBG="assets/images/exit_bg.png";
+  static String exitImage="assets/images/exit_image.png";
 
 
   ///Icons
@@ -35,6 +37,13 @@ class AppImages{
   static String  iconStars ="assets/icons/Stars_icon.png";
   static String  iconQuestion2 ="assets/icons/question.png";
   static String  iconChannel ="assets/icons/channel.png";
+  static String  iconChinese ="assets/icons/chinese.png";
+  static String  iconFrench ="assets/icons/french.png";
+  static String  iconGerman ="assets/icons/german.png";
+  static String  iconItalian ="assets/icons/italian.png";
+  static String  iconJapan ="assets/icons/japan.png";
+  static String  iconSpanish ="assets/icons/spanish.png";
+  static String  iconSelected ="assets/icons/selected.png";
 
 
 

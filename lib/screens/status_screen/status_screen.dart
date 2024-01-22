@@ -48,9 +48,9 @@ class _StatusScreenState extends State<StatusScreen>
       child: Scaffold(
         body: Column(
           children: [
-            const Column(
+             Column(
               children: [
-                CommonAppBar(str: AppString.strStatus,isTrailIcon: true),
+                CommonAppBar(str: AppString.strStatus.tr,isTrailIcon: true),
 
               ],
             ),
@@ -74,13 +74,13 @@ class _StatusScreenState extends State<StatusScreen>
                     tabs: [
                       Center(
                           child: _buildTab(
-                              AppString.strImages,
+                              AppString.strImages.tr,
                               _selectedIndex == 0
                                   ? AppColor.whiteColor
                                   : AppColor.colorGrey)),
                       Center(
                           child: _buildTab(
-                              AppString.strVideos,
+                              AppString.strVideos.tr,
                               _selectedIndex == 1
                                   ? AppColor.whiteColor
                                   : AppColor.colorGrey)),

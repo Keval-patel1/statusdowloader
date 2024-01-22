@@ -43,6 +43,11 @@ dependencies:
   appinio_social_share: ^0.3.0
   webview_flutter: ^4.4.4
   notification_reader: ^1.1.1
+  receive_whatsapp_chat:
+  shared_preferences:
+  receive_sharing_intent:
+      git:
+        url: https://github.com/AyushmanG26/receive_sharing_intent.git
 
 
 

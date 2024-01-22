@@ -30,7 +30,7 @@ class _SelectStatusSaverState extends State<SelectStatusSaver> {
             SizedBox(
               height: 55,
               child: Center(
-                child: Text(AppString.strStatusSaver,
+                child: Text(AppString.strStatusSaver.tr,
                     style: TS.fontStyle.sfFont18(AppColor.blackColor,
                         fontWeight: FontWeight.w500)),
               ),
@@ -47,7 +47,7 @@ class _SelectStatusSaverState extends State<SelectStatusSaver> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       hBox(height: 16),
-                      Text(AppString.strWaStatusSaver,
+                      Text(AppString.strWaStatusSaver.tr,
                           style: TS.fontStyle.sfFont16(AppColor.blackColor,
                               fontWeight: FontWeight.w500)),
                       hBox(height: 16),
@@ -89,7 +89,7 @@ class _SelectStatusSaverState extends State<SelectStatusSaver> {
                         ],
                       ),
                       hBox(height: 16),
-                      Text(AppString.strInstaAndYouTubeSaver,
+                      Text(AppString.strInstaAndYouTubeSaver.tr,
                           style: TS.fontStyle.sfFont16(AppColor.blackColor,
                               fontWeight: FontWeight.w500)),
                       hBox(height: 10),
@@ -109,7 +109,7 @@ class _SelectStatusSaverState extends State<SelectStatusSaver> {
                       ),
                       hBox(height: 10),
                       Text(
-                        AppString.strRecoverChat,
+                        AppString.strRecoverChat.tr,
                         style: TS.fontStyle.sfFont16(AppColor.blackColor,
                             fontWeight: FontWeight.w500),
                       ),

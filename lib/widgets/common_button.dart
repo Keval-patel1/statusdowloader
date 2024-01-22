@@ -6,11 +6,11 @@ import 'package:statusdowloader/utility/app_strings.dart';
 
 import '../utility/app_fonts.dart';
 
-Widget commonButton({required String str,required ,required void Function() onTap}){
+Widget commonButton({required String str,required ,required void Function() onTap,double? width}){
   return InkWell(
     onTap: onTap,
     child: Container(
-    width: 200,
+    width:width?? 200,
     height: 42,
     decoration: BoxDecoration(
 borderRadius: BorderRadius.circular(60),

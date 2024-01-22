@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:statusdowloader/utility/app_colors.dart';
 import 'package:statusdowloader/utility/app_images.dart';
@@ -34,7 +35,7 @@ class _ImageViewState extends State<ImageView> {
       child: Scaffold(
         body: Column(
           children: [
-            const CommonAppBar(str: AppString.strStatus,isTrailIcon: true),
+             CommonAppBar(str: AppString.strStatus.tr,isTrailIcon: true),
 
             Expanded(
               child: Padding(
